@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 30px;
+            text-align: center;
+            background-color: aliceblue;
+        }
+        .error{
+            background-color: red;
+        }
+        .success{
+            background-color: green;
+        }
+        tr th{
+            margin: 20px;
+            padding: 20px;
+            text-align: center;
+        }
+        #container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .insidecontainer{
+            display: flex;
+            text-align: left;
+        }
+        .div1{
+            margin: 12px;
+            display: flex;
+            flex-direction: column;
+        }
+        .row{
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Add Book</h1>
+        <form id="book-form">
+ 
+            <div class="insidecontainer">
+                <div class="div1" >
+                    <div class="row">
+                        <label for="">Title</label>
+                    </div>
+                    <div class="row">
+                        <label for="">Auther</label>
+                    </div>
+                    <div class="row">
+                        <label for="">ISBN</label>
+                    </div>
+                </div>
+                <div class="div1">
+                    <div class="row">
+                        <input type="text" id="title">
+                    </div>
+                    <div class="row">
+                        <input type="text"  id="auther">
+                    </div>
+                    <div class="row">
+                        <input type="text" id="isbn">
+                    </div>
+                </div>
+            </div>
+            <div>
+                <input type="submit" value="submit">
+            </div>
+        </form>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Auther</th>
+                    <th>ISBN</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="book-list">
+
+            </tbody>
+        </table>
+    </div>
+    <script src="first.js"></script>
+</body>
+</html>

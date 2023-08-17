@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<!--
+  COLLABORATORS:
+  Hanzla
+-->
+
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Word Finder</title>
+
+  <!-- Load any supplemental Javascript libraries here -->
+  <script type="text/javascript" src="jquery-1.5.min.js"></script>
+  <script type="text/javascript" src="words-small.json"></script>
+
+  <!-- Uncomment this to get the full 45,407 word dictionary
+<script type="text/javascript" src="words-large.json"></script>
+ -->
+
+  <script type="text/javascript" src="dictionary.js"></script>
+
+  <script type="text/javascript">
+    function searchWords(dict) {
+      const query = $("#find").val();
+      const searchResults = dict.search(query);
+      $("#word").empty();
+      for (const word of searchResults) {
+        $("#word").append(`<option>${word}</option>`);
+      }
+      if (query === "") {
+        $("#description").html(`${dict.size()} words total`);
+      } else {
+        $("#description").html(`${searchResults.length} words containing '${query}'`);
+      }
+    }
+
+    // <![CDATA[
+
+    // This allows the Javascript code inside this block to only run when the page
+    // has finished loading in the browser.
+    $(document).ready(function () {
+      var dict = new Dictionary(words);
+      // Your code here
+
+      $("#clear").click(function () {
+        $("#find").val("");
+        searchWords(dict);
+      })
+      searchWords(dict);
+      $("#find").keyup(function () {
+        searchWords(dict);
+      })
+    });
+
+// ]]>
+  </script>
+
+  <style type="text/css">
+    /* Your CSS here */
+    html {
+      background-color: #eee;
+    }
+
+    body {
+      text-align: center;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <!-- Your HTML here -->
+  <div class="search">
+    <label for="find">Find: </label>
+    <input type="text" id="find">
+    <button id="clear">Clear</button>
+  </div>
+  <div class="words">
+    <p id="description">Loading words...</p>
+    <br>
+    <select multiple id="word">
+    </select>
+  </div>
+
+</body>
+
+</html>
